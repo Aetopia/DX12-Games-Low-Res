@@ -1,5 +1,5 @@
 # How to use any resolution in DX12 Games.
-This repository explains and guides on how to use any resolution with DX12 Games.
+A repository that explains and guides on how to use any desktop resolution with DX12 Games.
 
 ## What is the problem with DX12?
 With DX12, Microsoft was able to basically make performance between FSB/Windowed and FSE the same.            
