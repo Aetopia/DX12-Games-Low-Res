@@ -14,25 +14,25 @@ In 90% this silder is enough to increase performance but the rest 10% can get be
 
 Lets first understand, what's different between FSE and FSB/Windowed Mode.
 
-FSE: Essentially the game can fully bypass DWM and has full access to the GPU itself.
-FSB: Mimicks FSE but the game doesn't bypass DWM and doesn't have full access to the GPU.
+FSE: Essentially the game can fully bypass DWM and has full access to the GPU itself.           
+FSB: Mimicks FSE but the game doesn't bypass DWM and doesn't have full access to the GPU.              
 
-With FSE, the game can tell your GPU to "Hey! Set the resolution to 1280x720!" and according your GPU responds to those changes.
-With FSB, the game cannot tell your GPU to use a resolution of 1280x720 since its still fundamentally rendering as a window and cannot bypass DWM.
+With FSE, the game can tell your GPU to "Hey! Set the resolution to 1280x720!" and according your GPU responds to those changes.                              
+With FSB, the game cannot tell your GPU to use a resolution of 1280x720 since its still fundamentally rendering as a window and cannot bypass DWM.                     
 
-Here is the thing, FSB games will take on the resolution of what DWM returns so fundamentally if one changes their desktop resolution, we can force a game to scale down and use that resolution.
+Here is the thing, FSB games will take on the resolution of what DWM returns so fundamentally if one changes their desktop resolution, we can force a game to scale down and use that resolution.           
 
-Of course, doing this manually would be a hassle and automation is a must.
+Of course, doing this manually would be a hassle and automation is a must.          
 
 ### How can this process be automated?
 
-[Resolution Enforcer](https://github.com/aetopia/resolution-enforcer) is a simple tool which allows you to enforce specfic resolutions on specific applications. Works with UWP and Win32 apps with ease.
+[Resolution Enforcer](https://github.com/aetopia/resolution-enforcer) is a simple tool which allows you to enforce specfic resolutions on specific applications. Works with UWP and Win32 apps with ease.    
 
-Let's see how this process can be automated.
+Let's see how this process can be automated.       
 
 1. First, we constantly look for the current active/foreground window.
 2. Once, we find a XYZ window then we call for `ChangeDisplaySettings` from the `win32api` to enforce a resolution.
 3. Incase the window, we found becomes inactive or the user switches windows then we revert back to the native resolution.
-4. We run this process in a loop.
+4. We run this process in a loop.    
 
 The Resolution Enforcer exactly does this.
